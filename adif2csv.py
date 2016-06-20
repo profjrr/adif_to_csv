@@ -75,7 +75,7 @@ class adif2csv(object):
 
             So we split again using > - but only for an object who's length is > 0
             '''
-            yield(','.join([f.split('>')[1].strip() for f in line.split('<') if len(f) > 0]))
+            yield(','.join([f.split('>')[1].strip() for f in line.split('<') if len(f) > 0])+'\n')
 
 if __name__ == "__main__":
     cvt=adif2csv()
