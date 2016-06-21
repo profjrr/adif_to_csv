@@ -61,7 +61,6 @@ class adif2csv(object):
                 Make a regex to find the adif_codes, then chop the 1st letter off the string.
                 Finally stitch it together as a string - and we have the header
                 '''
-
                 self.header = ",".join([a[1:] for a in re.findall(r'<[a-z_]+', self.lines[0])])
             else:
                 print("Error No dictionary can be made - there is no data")
@@ -74,6 +73,7 @@ class adif2csv(object):
             for l in self.lines:
                 tmp=([a[1:] for a in re.findall(r'<[a-z_]+', l)])
                 head=head+tmp
+                #Do this to keep the list small
                 head=list(set(head))
 
             # Get the Unique tags
